@@ -124,6 +124,22 @@ public class Array_Advance {
 
     }
 
+    static void deleteDuplicate(int[] arr){
+
+        int[] newArray = new int[arr.length];
+        int j = 0;
+        for (int i = 0; i < arr.length - 1; i++){
+            if (arr[i] != arr[i + 1]){
+                newArray[j++] = arr[i];
+            }
+        }
+        newArray[j++] = arr[arr.length - 1];
+
+        for (int i = 0; i<j; i++){
+            System.out.print(newArray[i]);
+        }
+    }
+
     // Prefix Sum--
 
     static void prefixSum(int[] arr){
@@ -206,6 +222,7 @@ public class Array_Advance {
        }
         return false;
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] arr = {1,0,0,1,0,1,1,0,0};
@@ -239,7 +256,7 @@ public class Array_Advance {
 //        prefixSum(array);
 //        suffixSum(arrays);
 //        System.out.println("Equal partition possible : " + subArray(array) );
-        System.out.println(suffix(array));
-
+//        System.out.println(suffix(array));
+        deleteDuplicate(array);
     }
 }
