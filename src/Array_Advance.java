@@ -224,6 +224,7 @@ public class Array_Advance {
     }
 
     public static void main(String[] args) {
+        System.out.println("Hello");
         Scanner sc = new Scanner(System.in);
         int[] arr = {1,0,0,1,0,1,1,0,0};
         int[] arr2 = {1,3,4,5,6,8};
