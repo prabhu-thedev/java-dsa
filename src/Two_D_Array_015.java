@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Two_D_Array {
+public class Two_D_Array_015 {
     Scanner sc = new Scanner(System.in);
 
     static void printArray(int[][] array){
@@ -47,7 +47,7 @@ public class Two_D_Array {
         printArray(mul);
     }
     public static void main(String[] args) {
-
+        System.out.println("Program started ");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of rows and column of matrix 1");
         int r1 = sc.nextInt();
