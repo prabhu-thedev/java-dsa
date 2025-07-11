@@ -46,6 +46,7 @@ public class Two_D_Array_015 {
         System.out.println("Answer matrix");
         printArray(mul);
     }
+
     public static void main(String[] args) {
         System.out.println("Program started ");
         Scanner sc = new Scanner(System.in);
@@ -79,8 +80,8 @@ public class Two_D_Array_015 {
         System.out.println("Matrix two");
         printArray(b);
 //        printArray(a);
-//        add(a,r1,c1,b,r2,c2);
-        multiplication(a,r1,c1,b,r2,c2);
+        add(a,r1,c1,b,r2,c2);
+//        multiplication(a,r1,c1,b,r2,c2);
 
     }
 }
