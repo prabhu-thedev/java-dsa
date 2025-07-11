@@ -136,7 +136,7 @@ public class Array_Advance {
         newArray[j++] = arr[arr.length - 1];
 
         for (int i = 0; i<j; i++){
-            System.out.print(newArray[i]);
+            System.out.print(newArray[i] + " ");
         }
     }
 
