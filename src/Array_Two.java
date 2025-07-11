@@ -6,22 +6,22 @@ public class Array_Two {
         Scanner sc = new Scanner(System.in);
 //        System.out.println(" Hello world ");
 //        int rows = sc.nextInt();
-//        int colos = sc.nextInt();
+//        int colors = sc.nextInt();
 //
-//        int[][] nums = new int[rows][colos];
+//        int[][] numbs = new int[rows][col];
 
         // Input
         // Rows
 //        for (int i = 0; i<rows; i++){
 //            // columns
-//            for (int j = 0; j<colos; j++){
-//                nums[i][j] = sc.nextInt();
+//            for (int j = 0; j<col; j++){
+//                numbs[i][j] = sc.nextInt();
 //            }
 //        }
 //        // Output
 //        for (int i = 0; i<rows; i++){
-//            for (int j =0; j<colos; j++){
-//                System.out.print(nums[i][j] + " ");
+//            for (int j =0; j<col; j++){
+//                System.out.print(numbs[i][j] + " ");
 //            }
 //            System.out.println();
 //        }
