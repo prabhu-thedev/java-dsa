@@ -59,7 +59,6 @@ public class Two_D_Array_015 {
     }
 
     // Transpose in and store in  same array
-
     static void transposeInPlace(int[][] matrix, int r, int c){
     // Worked on only square matrix
         for (int i = 0; i < c; i++) {
@@ -73,6 +72,7 @@ public class Two_D_Array_015 {
         printArray(matrix);
     }
 
+    // Reversing an array
     static void reverseArray(int [] array){
         int i = 0;
         int j = array.length - 1;
@@ -86,7 +86,6 @@ public class Two_D_Array_015 {
     }
 
     // Rotate array
-
     static void rotateMatrix(int[][] matrix, int n){
         // Transpose
         transposeInPlace(matrix,n,n);
@@ -98,7 +97,6 @@ public class Two_D_Array_015 {
     }
 
     // Pascal Triangle
-
     static void pascalTraingle(int n){
         int[][] ans = new int[n][];
 
@@ -115,7 +113,6 @@ public class Two_D_Array_015 {
     }
 
     // Spiral Order
-
     static void spiralOrder(int[][] matrix, int r, int c){
         int topRow = 0, bottomRow = r-1, leftCol = 0, rightCol = c-1;
         int totalElements =  0;
@@ -150,7 +147,6 @@ public class Two_D_Array_015 {
     }
 
     // Generating Spiral Order
-
     static void spiralOrderGen(int n){
         int[][] ans = new int[n][n];
        int topRow = 0, bottomRow = n-1, leftCol = 0, rightCol = n-1;
@@ -184,7 +180,6 @@ public class Two_D_Array_015 {
     }
 
     // Sum of Rectangle
-
     static void rectSum(int[][] matrix,int l1,int r1,int l2, int r2){
         int sum = 0;
         for (int i = l1; i <= l2; i++) {
@@ -195,7 +190,8 @@ public class Two_D_Array_015 {
         System.out.println(sum);
     }
 
-   static void FindpreFixSumMatrix(int[][] matrix){
+    // Finding prefix sum of rows
+    static void FindpreFixSumMatrix(int[][] matrix){
         int r = matrix.length;
         int c = matrix[0].length;
 
@@ -204,6 +200,18 @@ public class Two_D_Array_015 {
                matrix[i][j] += matrix[i][j-1];
            }
        }
+    }
+
+    // Finding prefix sum of cols
+    static void FindpreFixSumMatrix2(int[][] matrix){
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+        for (int i = 1; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                matrix[i][j] += matrix[i - 1][j];
+            }
+        }
     }
 
     static void rectSum2(int[][] matrix,int l1,int r1,int l2, int r2){
@@ -220,6 +228,12 @@ public class Two_D_Array_015 {
 
         }
         System.out.println(sum);
+    }
+
+    static void rectSum3(int[][] matrix, int l1,int r1,int l2, int r2){
+        FindpreFixSumMatrix2(matrix);
+        printArray(matrix);
+        System.out.println(matrix[l2][r2]);
     }
 
     public static void main(String[] args) {
@@ -285,5 +299,7 @@ public class Two_D_Array_015 {
         rectSum(a,l1,r1,l2,r2);
         System.out.println("Sum of rect matrix 2");
         rectSum2(a,l1,r1,l2,r2);
+        System.out.println("Sum of rect matrix 3");
+        rectSum3(a,l1,r1,l2,r2);
     }
 }
