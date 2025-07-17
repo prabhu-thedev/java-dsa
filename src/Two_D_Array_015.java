@@ -149,22 +149,99 @@ public class Two_D_Array_015 {
         }
     }
 
+    // Generating Spiral Order
+
+    static void spiralOrderGen(int n){
+        int[][] ans = new int[n][n];
+       int topRow = 0, bottomRow = n-1, leftCol = 0, rightCol = n-1;
+        int curr = 1;
+        while (curr <  n*n){
+            // Top Row
+            for (int i = leftCol; i <= rightCol && curr < n * n; i++) {
+                ans[topRow][i] = curr++;
+            }
+            topRow++;
+            // right col
+            for (int i = topRow; i <= bottomRow && curr < n * n; i++) {
+                ans[i][rightCol] = curr++;
+            }
+            rightCol--;
+            // bottomRow
+            for (int i = rightCol; i >= leftCol && curr < n * n; i--) {
+                ans[bottomRow][i] = curr++;
+            }
+            bottomRow--;
+            // left Col
+            for (int i = bottomRow; i >= topRow && curr < n * n; i--) {
+                ans[i][leftCol] = curr++;
+            }
+
+            leftCol++;
+
+        }
+        printArray(ans);
+
+    }
+
+    // Sum of Rectangle
+
+    static void rectSum(int[][] matrix,int l1,int r1,int l2, int r2){
+        int sum = 0;
+        for (int i = l1; i <= l2; i++) {
+            for (int j = r1; j <= r2; j++) {
+                sum += matrix[i][j];
+            }
+        }
+        System.out.println(sum);
+    }
+
+   static void FindpreFixSumMatrix(int[][] matrix){
+        int r = matrix.length;
+        int c = matrix[0].length;
+
+       for (int i = 0; i < r; i++) {
+           for (int j = 1; j < c; j++) {
+               matrix[i][j] += matrix[i][j-1];
+           }
+       }
+    }
+
+    static void rectSum2(int[][] matrix,int l1,int r1,int l2, int r2){
+        int sum = 0;
+        FindpreFixSumMatrix(matrix);
+
+        for (int i = l1; i <= l2; i++) {
+            // r1 to r2 sum for row 1
+            if (r1 >= 1){
+                sum += matrix[i][r2] - matrix[i][r1-1];
+            }else {
+                sum += matrix[i][r2];
+            }
+
+        }
+        System.out.println(sum);
+    }
 
     public static void main(String[] args) {
         System.out.println("Program started ");
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter number of rows and column of matrix 1");
-        int r1 = sc.nextInt();
-        int c1 = sc.nextInt();
-        int[][] a = new int[r1][c1];
+        int row1 = sc.nextInt();
+        int col1 = sc.nextInt();
+        int[][] a = new int[row1][col1];
         // Input
-        System.out.println("Enter " + r1*c1 + " Elements on matrix 1");
-        for (int i = 0; i < r1; i++) { // rows
-            for (int j = 0; j < c1; j++) { // columns
+        System.out.println("Enter " + row1*col1 + " Elements on matrix 1");
+        for (int i = 0; i < row1; i++) { // rows
+            for (int j = 0; j < col1; j++) { // columns
                 a[i][j] = sc.nextInt();
             }
         }
+        System.out.println("Enter the coordinates");
+        int l1 = sc.nextInt();
+        int r1 = sc.nextInt();
+        int l2 = sc.nextInt();
+        int r2 = sc.nextInt();
 /*
 
         System.out.println("Enter number of rows and column of matrix 2");
@@ -195,9 +272,18 @@ public class Two_D_Array_015 {
         System.out.println("Enter the n value");
         int n = sc.nextInt();
         pascalTraingle(n);
-
- */
         System.out.println("Spiral Order");
         spiralOrder(a,r1,c1);
+
+
+        System.out.println("Enter the n value");
+        int n = sc.nextInt();
+        System.out.println("Generated 2d Matrix : ");
+        spiralOrderGen(n);
+ */
+        System.out.println("Sum of rect matrix 1");
+        rectSum(a,l1,r1,l2,r2);
+        System.out.println("Sum of rect matrix 2");
+        rectSum2(a,l1,r1,l2,r2);
     }
 }
