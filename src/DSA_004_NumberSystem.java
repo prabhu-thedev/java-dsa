@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class NumberSystem_010 {
+public class DSA_004_NumberSystem {
     public static void main(String[] args) {
         // Types of number system :-
         // 1. Decimal Numbers, 2. Decimal Numbers, 3, Hexa Decimal Number

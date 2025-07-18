@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Array_Two {
+public class DSA_009_Array_Two {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

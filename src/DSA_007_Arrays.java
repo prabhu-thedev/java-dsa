@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Arrays {
+public class DSA_007_Arrays {
 
     int[] arr = {10,20,30,40,50,60,70,80,90,100};
 
@@ -52,7 +52,7 @@ static void fun(int[] arr3){
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Arrays a = new Arrays();
+        DSA_007_Arrays a = new DSA_007_Arrays();
         a.printArray();
 //        System.out.println("Array length is : " + a.length);
 

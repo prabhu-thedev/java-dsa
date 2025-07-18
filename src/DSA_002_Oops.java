@@ -1,12 +1,10 @@
-import java.util.Scanner;
-
- class Car{
+class Car{
      int age;
      String s;
 }
 
 
-public class Oops_011 {
+public class DSA_002_Oops {
 
     public static void main(String[] args) {
 

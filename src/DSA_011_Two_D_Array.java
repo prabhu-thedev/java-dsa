@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Two_D_Array_015 {
+public class DSA_011_Two_D_Array {
     Scanner sc = new Scanner(System.in);
 
     static void printArray(int[][] array){

@@ -1,0 +1,5 @@
+Today we are studying about time and space complexity
+
+
+Time Complexity : -
+                    Relation between Input size and Running Time Operation

@@ -1,7 +1,6 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayPractice {
+public class DSA_008_ArrayPractice {
     public static void main(String[] args) {
 //        int[] arr = {97,98,95};
 //        for (int num : arr){

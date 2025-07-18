@@ -1,5 +1,4 @@
-import java.util.*;
-public class StringBuilders {
+public class DSA_005_StringBuilders {
 
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder("Steve");

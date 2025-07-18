@@ -1,4 +1,4 @@
-public class Patterns {
+public class DSA_001Patterns {
 
     public static void main(String[] args) {
 //        System.out.println("Hello");

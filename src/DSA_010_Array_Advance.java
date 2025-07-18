@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Array_Advance {
+public class DSA_010_Array_Advance {
     Scanner scanner = new Scanner(System.in);
     static void print(int[] arr){
         for (int j : arr) {

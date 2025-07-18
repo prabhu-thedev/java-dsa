@@ -1,4 +1,4 @@
-public class Patterss_2 {
+public class DSA_003_Patterns {
     // Printing Patterns : Rectangle patterns
     // Triangular Pattern
     // Numerical Rectangular Patterns
