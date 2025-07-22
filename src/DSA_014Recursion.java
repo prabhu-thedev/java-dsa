@@ -97,6 +97,25 @@ public class DSA_014Recursion {
         int ans = sum(n-1);
         return ans + n;
     }
+    // sum of give n by sign
+    static int sum2(int n){
+        if (n == 0){
+            return n;
+        }
+/*
+        if (n % 2 == 0){
+            int ans = sum2(n-1);
+            return ans - n;
+        }else {
+            int ans = sum2(n-1);
+            return ans + n;
+        }
+*/
+        if (n % 2 == 0)
+            return sum2(n-1) - n;
+        else
+            return sum2(n-1) + n;
+    }
 
 
     public static void main(String[] args) {
@@ -116,6 +135,8 @@ public class DSA_014Recursion {
         System.out.println(sumOfDigits(n));
 */
 //        multiples(n,k);
-        System.out.println(sum(n));
+//        System.out.println(sum(n));
+
+        System.out.println(sum2(n));
     }
 }
