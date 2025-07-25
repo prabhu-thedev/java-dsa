@@ -116,12 +116,44 @@ public class DSA_014Recursion {
         else
             return sum2(n-1) + n;
     }
+    // GCD brute force
+    static int GCD(int x, int y){
+        int i = 1;
+        int result = 0;
+        int min = Math.min(x,y);
+        for ( i = 1; i <= min; i++) {
+            if (x % i == 0 && y % i == 0){
+                result = i;
+            }
+        }
+       return result;
+    }
+    // Better approach
+    static int GCD2(int x, int y){
+        while (x%y != 0){
+            int rem = x % y;
+            x = y;
+            y = rem;
+        }
+        return y;
+    }
+    // Recursive approach
+//    static int GCD3()
+    static int GCD3(int x, int y){
+        if (y == 0)
+            return x;
+        return GCD3(y,x%y);
+    }
+
+
+
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter n value");
         int n = sc.nextInt();
+        int y = sc.nextInt();
 //        int k = sc.nextInt();
 /*
         printIncreasing(n);
@@ -133,10 +165,14 @@ public class DSA_014Recursion {
         }
 
         System.out.println(sumOfDigits(n));
-*/
-//        multiples(n,k);
-//        System.out.println(sum(n));
-
+        multiples(n,k);
+        System.out.println(sum(n));
         System.out.println(sum2(n));
+*/
+
+        System.out.println(GCD(n,y));
+        System.out.println(GCD2(n,y));
+        System.out.println(GCD3(n,y));
+
     }
 }
