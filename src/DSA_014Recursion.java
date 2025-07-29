@@ -138,22 +138,46 @@ public class DSA_014Recursion {
         return y;
     }
     // Recursive approach
-//    static int GCD3()
     static int GCD3(int x, int y){
         if (y == 0)
             return x;
         return GCD3(y,x%y);
     }
-
-
-
+    // Printing an array using recursive
+    static void printArray(int[] arr, int idx){
+        if (idx < arr.length -1)return;
+        System.out.print(arr[idx] + " ");
+        printArray(arr,idx+1);
+    }
+    static int findArraymax(int[] arr,int idx){
+        if (idx == arr.length-1){
+            return arr[idx];
+        }
+        int smallAns = findArraymax(arr,idx+1);
+        return Math.max(arr[idx],smallAns);
+    }
+    static int findSum(int[] arr, int idx){
+        if (idx == arr.length-1){
+            return arr[idx];
+        }
+        int sum = findSum(arr,idx+1);
+        return sum += arr[idx];
+    }
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter n value");
-        int n = sc.nextInt();
-        int y = sc.nextInt();
+//        int n = sc.nextInt();
+//        int[] arr = new int[n];
+//        for (int i = 0; i < n; i++) {
+//            arr[i] = sc.nextInt();
+//        }
+        int[] arr2 = {
+                1,2,3
+        };
+
+//        int y = sc.nextInt();
 //        int k = sc.nextInt();
 /*
         printIncreasing(n);
@@ -168,11 +192,14 @@ public class DSA_014Recursion {
         multiples(n,k);
         System.out.println(sum(n));
         System.out.println(sum2(n));
-*/
-
         System.out.println(GCD(n,y));
         System.out.println(GCD2(n,y));
         System.out.println(GCD3(n,y));
+ */
+//        printArray(arr2,0);
+//        System.out.println(arr2.length-1);
+//        System.out.println(findArraymax(arr2,0));
+        System.out.println(findSum(arr2,0));
 
     }
 }
