@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -163,19 +164,74 @@ public class DSA_014Recursion {
         int sum = findSum(arr,idx+1);
         return sum += arr[idx];
     }
-
+    // Finding the given value
+    static void findValue(int[] arr, int idx, int target){
+        if (idx > arr.length-1){
+            System.out.println("Not found");
+            return;
+        }
+        if (arr[idx] == target){
+            System.out.println("Found " + idx);
+            return;
+        }
+        findValue(arr,idx+1,target);
+    }
+    static int findValue2(int[] arr, int idx, int target){
+        if (idx == arr.length -1)
+            return -1;
+        if (arr[idx] == target)
+            return idx;
+        return findValue2(arr, idx + 1, target);
+    }
+    // printing the indices of array from given n
+    static void printIndices(int[] arr, int idx, int n){
+        if (idx >= arr.length)
+            return;
+        if (arr[idx] == n){
+            System.out.print(idx + " ");
+        }
+        printIndices(arr,idx+1,8);
+    }
+    // returning indices in arrayList
+    static ArrayList<Integer> allIndices(int[] arr, int n, int target,int idx){
+        // base case
+        ArrayList<Integer> ans = new ArrayList<>();
+        if (idx >=  n){
+            return ans; // return empty array list
+        }
+        // Self work
+        if (arr[idx] == target){
+            ans.add(idx);
+        }
+        // recursive work
+        ArrayList<Integer> smallAns =  allIndices(arr,n,target,idx+1);
+        ans.addAll(smallAns);
+        return ans;
+    }
+    // checking is array sorted or not
+    static boolean isSorted(int[] arr,int idx,int n){
+        boolean isSorted = false;
+        if (idx >= n-1){
+            return true;
+        }
+        if (arr[idx] > arr[idx+1]){
+            return false;
+        }
+        return isSorted(arr,idx+1,n);
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter n value");
+//        System.out.println("Enter n value");
 //        int n = sc.nextInt();
 //        int[] arr = new int[n];
 //        for (int i = 0; i < n; i++) {
 //            arr[i] = sc.nextInt();
 //        }
         int[] arr2 = {
-                1,2,3
+                1,2,4,5,6,3
         };
+        int n = arr2.length;
 
 //        int y = sc.nextInt();
 //        int k = sc.nextInt();
@@ -187,7 +243,6 @@ public class DSA_014Recursion {
         for (int i = 0; i <= 10; i++) {
             System.out.print(fibonacci(i) + " ");
         }
-
         System.out.println(sumOfDigits(n));
         multiples(n,k);
         System.out.println(sum(n));
@@ -195,11 +250,22 @@ public class DSA_014Recursion {
         System.out.println(GCD(n,y));
         System.out.println(GCD2(n,y));
         System.out.println(GCD3(n,y));
- */
-//        printArray(arr2,0);
-//        System.out.println(arr2.length-1);
-//        System.out.println(findArraymax(arr2,0));
+        printArray(arr2,0);
+        System.out.println(arr2.length-1);
+        System.out.println(findArraymax(arr2,0));
         System.out.println(findSum(arr2,0));
+        System.out.println(findValue2(arr2,0,8));
+        printIndices(arr2,0,8);
+       ArrayList<Integer> ans = allIndices(arr2,n,4,0);
+       for (Integer i: ans){
+           System.out.print(i + " ");
+       }
+ */
+        if (isSorted(arr2,0,n)){
+            System.out.println("Yes");
+        }else {
+            System.out.println("No");
+        }
 
     }
 }
