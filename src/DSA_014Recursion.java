@@ -190,7 +190,7 @@ public class DSA_014Recursion {
         if (arr[idx] == n){
             System.out.print(idx + " ");
         }
-        printIndices(arr,idx+1,8);
+        printIndices(arr,idx+1,4);
     }
     // returning indices in arrayList
     static ArrayList<Integer> allIndices(int[] arr, int n, int target,int idx){
@@ -219,7 +219,68 @@ public class DSA_014Recursion {
         }
         return isSorted(arr,idx+1,n);
     }
-
+    // return subsequent
+    static ArrayList<String> getSSQ(String s){
+         ArrayList<String> ans = new ArrayList<>();
+         //
+            if (s.isEmpty()){
+                ans.add(" ");
+                return ans;
+            }
+        char curr = s.charAt(0);
+        // Recursive work
+        ArrayList<String> smallAns = getSSQ(s.substring(1));
+        // self work
+        for (String ss:smallAns) {
+            ans.add(ss);
+            ans.add(curr+ss);
+        }
+        return ans;
+    }
+    // printing subsequent
+    static void printSSQ(String s, String currAns){
+        // base case
+        if (s.isEmpty()){
+            System.out.println(currAns);
+            return;
+        }
+        char curr = s.charAt(0);
+        String remString = s.substring(1);
+        // recursive work
+            printSSQ(remString,currAns + curr); // add curr
+            printSSQ(remString,currAns); // do not add curr
+    }
+    // print sum of sub sets of array
+    static void subSetSum(int[] a,int n,int idx, int sum){
+        if (idx >= n){
+            System.out.println(sum);
+            return;
+        }
+        // curr isd + curr ans - include
+            subSetSum(a,n,idx+1,sum+a[idx]);
+        // curr ans - exclude
+        subSetSum(a,n,idx+1,sum);
+    }
+    static int frogJump(int[] h, int n,int idx){
+         if (idx == n-1){
+             return 0;
+         }
+         int op1 = Math.abs(h[idx] - h[idx+1]) + frogJump(h,n,idx+1);
+         if (idx == n-2) return op1;
+         int op2 = Math.abs(h[idx] - h[idx+2]) + frogJump(h,n,idx+2);
+         return Math.min(op1,op2);
+    }
+    static void combinations(String s,String res,String[] kp){ // 253
+        if (s.isEmpty()){
+            System.out.println(res);
+            return;
+        }
+        int currNum = s.charAt(0) - '0';
+        String currChoices = kp[currNum];
+        for (int i = 0; i<currChoices.length(); i++){
+            combinations(s.substring(1),res+currChoices.charAt(i),kp);
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        System.out.println("Enter n value");
@@ -229,7 +290,7 @@ public class DSA_014Recursion {
 //            arr[i] = sc.nextInt();
 //        }
         int[] arr2 = {
-                1,2,4,5,6,3
+                1,2,4,4,5,4
         };
         int n = arr2.length;
 
@@ -255,17 +316,35 @@ public class DSA_014Recursion {
         System.out.println(findArraymax(arr2,0));
         System.out.println(findSum(arr2,0));
         System.out.println(findValue2(arr2,0,8));
-        printIndices(arr2,0,8);
+        printIndices(arr2,0,4);
        ArrayList<Integer> ans = allIndices(arr2,n,4,0);
        for (Integer i: ans){
            System.out.print(i + " ");
        }
- */
         if (isSorted(arr2,0,n)){
             System.out.println("Yes");
         }else {
             System.out.println("No");
         }
+
+        ArrayList<String> ans =  getSSQ("abc");
+
+        for (String ss: ans){
+            System.out.println(ss);
+        }
+        printSSQ("abc" , " ");
+        int[] a = {2,4,5};
+        subSetSum(a,a.length,0,0);
+        int[] h = {10,30,40,20};
+        int size = h.length;
+        System.out.println(frogJump(h,size,0));
+ */
+        String s = "253";
+        String[] kp = {
+                "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+//                0 1   2       3    4   5      6       7     8   9
+        };
+        combinations(s," ",kp);
 
     }
 }
