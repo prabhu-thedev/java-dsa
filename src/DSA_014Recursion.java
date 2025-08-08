@@ -210,7 +210,6 @@ public class DSA_014Recursion {
     }
     // checking is array sorted or not
     static boolean isSorted(int[] arr,int idx,int n){
-        boolean isSorted = false;
         if (idx >= n-1){
             return true;
         }
